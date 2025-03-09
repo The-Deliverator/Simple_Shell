@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_LENGTH 100
 
@@ -7,27 +8,23 @@ int main() {
     char firstName[MAX_LENGTH];
     char lastName[MAX_LENGTH];
 
-    // Prompt for first name
-    printf("Enter your first name: ");
+     printf("Enter your first name: ");
     if (fgets(firstName, MAX_LENGTH, stdin) == NULL) {
         perror("Error reading first name");
         return 1;
     }
-    // Remove the trailing newline character from the input (if any)
-
+ 
     firstName[strcspn(firstName, "\n")] = '\0';
 
-    // Prompt for last name
-    printf("Enter your last name: ");
+     printf("Enter your last name: ");
 
     if (fgets(lastName, MAX_LENGTH, stdin) == NULL) {
         perror("Error reading last name");
         return 1;
     }
 
-    // Remove the trailing newline character from the input (if any)
-    lastName[strcspn(lastName, "\n")] = '\0';
-    // Print the greeting message
+     lastName[strcspn(lastName, "\n")] = '\0';
+ 
     printf("Hello, %s %s!\n", firstName, lastName);
     return 0;
 
